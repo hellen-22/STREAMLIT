@@ -1,7 +1,15 @@
 import streamlit as st
+import pandas as pd
+import pandas_profiling
+from streamlit_pandas_profiling import st_profile_report
 
 st.header('UNITS DETERMINANT')
 
+units_data = pd.read_csv('dashboard_data/Aggregated_Metrics_By_Country_And_Subscriber_Status.csv')
+profile = units_data.profile_report()
+st_profile_report(profile)
+
+#Implementing streamlit selctbox
 school_selectbox = st.selectbox("Select your school",(
     "School of Computing",
     "School of Nursing",
@@ -44,7 +52,7 @@ elif school_selectbox == "School of Education":
         "Mathematics"
     ))
 
-
+#Implementing streamlit slider
 year_of_study = st.slider("Pick year of study", 1, 4, 2)
 if year_of_study == 1:
     st.write("I'm in First Year")
@@ -58,8 +66,19 @@ elif year_of_study == 4:
 average_units = st.slider("How many units are offered in a semester", 0, 10,(5, 6))
 st.write("We have an average of ", average_units, "units" )
 
+#Implementing streamlit multiselect
 st.multiselect("Select your fields of interest",["Networking", "Programming", "Security", "Hardware", "Database"],["Networking", "Database"])
 
+#Implementing streamlit checkbox
+st.write("How did you hear about us")
+st.checkbox("Twitter")
+st.checkbox("Whatsapp")
+st.checkbox("A friend")
+st.checkbox("Website")
+
+#Implementing streamlit text input
 search_text = st.text_input("Choice")
 
+
+#Implementing streamlit button
 recommend_button = st.button('SUBMIT')
