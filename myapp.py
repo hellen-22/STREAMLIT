@@ -58,6 +58,7 @@ elif year_of_study == 4:
 average_units = st.slider("How many units are offered in a semester", 0, 10,(5, 6))
 st.write("We have an average of ", average_units, "units" )
 
+st.multiselect("Select your fields of interest",["Networking", "Programming", "Security", "Hardware", "Database"],["Networking", "Database"])
 
 search_text = st.text_input("Choice")
 
