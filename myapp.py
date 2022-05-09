@@ -1,13 +1,16 @@
 import streamlit as st
 import pandas as pd
 import pandas_profiling
+#pip install streamlit_pandas_profiling
 from streamlit_pandas_profiling import st_profile_report
 
 st.header('UNITS DETERMINANT')
-
+"""
 units_data = pd.read_csv('dashboard_data/Aggregated_Metrics_By_Country_And_Subscriber_Status.csv')
 profile = units_data.profile_report()
 st_profile_report(profile)
+
+"""
 
 #Implementing streamlit selctbox
 school_selectbox = st.selectbox("Select your school",(
@@ -82,3 +85,6 @@ search_text = st.text_input("Choice")
 
 #Implementing streamlit button
 recommend_button = st.button('SUBMIT')
+
+#st.latex-for mathematical formulas
+
